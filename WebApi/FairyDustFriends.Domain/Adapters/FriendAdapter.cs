@@ -22,16 +22,16 @@ namespace FairyDustFriends.Domain.Adapters
             );
         }
 
-        public FriendViewModel FriendToViewModel(Friend Friend)
+        public FriendViewModel FriendToViewModel(Friend friend)
         {
             return new FriendViewModel()
             {
-                Id = Friend.Id.ToString(),
-                FirstName = Friend.FirstName,
-                LastName = Friend.LastName,
-                Email = Friend.Email,
-                Phone = Friend.Phone,
-                Birthday = Friend.Birthday.ToString()
+                Id = friend.Id.ToString(),
+                FirstName = friend.FirstName,
+                LastName = friend.LastName,
+                Email = friend.Email,
+                Phone = friend.Phone,
+                Birthday = friend.Birthday.ToString()
             };
         }
     }

@@ -8,51 +8,51 @@ namespace FairyDustFriends.Domain
 {
     public class FriendService : IFriendService
     {
-        private IFriendRepository _FriendRepository;
+        private IFriendRepository _friendRepository;
 
-        public FriendService(IFriendRepository FriendRepository)
+        public FriendService(IFriendRepository friendRepository)
         {
-            _FriendRepository = FriendRepository;
+            _friendRepository = friendRepository;
         }
         public void Add(FriendViewModel viewModel)
         {
-            var Friend = new FriendAdapter().ViewModelToFriend(viewModel);
+            var friend = new FriendAdapter().ViewModelToFriend(viewModel);
 
-            _FriendRepository.Create(Friend);
+            _friendRepository.Create(friend);
         }
 
         public void Delete(string id)
         {
-            _FriendRepository.Delete(id);
+            _friendRepository.Delete(id);
         }
 
         public FriendViewModel Get(string id)
         {
-            var Friend = _FriendRepository.Get(id);
+            var friend = _friendRepository.Get(id);
                 
-            var viewModel = new FriendAdapter().FriendToViewModel(Friend);
+            var viewModel = new FriendAdapter().FriendToViewModel(friend);
 
             return viewModel;
         }
 
         public List<FriendViewModel> GetAll()
         {
-            var FriendsViewModel = new List<FriendViewModel>();
-            var Friends = _FriendRepository.GetAll();
+            var friendsViewModel = new List<FriendViewModel>();
+            var friends = _friendRepository.GetAll();
 
-            foreach (var Friend in Friends)
+            foreach (var Friend in friends)
             {
-                FriendsViewModel.Add(new FriendAdapter().FriendToViewModel(Friend));
+                friendsViewModel.Add(new FriendAdapter().FriendToViewModel(Friend));
             }
 
-            return FriendsViewModel;
+            return friendsViewModel;
         }
 
         public void Update(FriendViewModel viewModel)
         {
-            var Friend = new FriendAdapter().ViewModelToFriend(viewModel);
+            var friend = new FriendAdapter().ViewModelToFriend(viewModel);
 
-            _FriendRepository.Update(Friend);
+            _friendRepository.Update(friend);
         }
     }
 }

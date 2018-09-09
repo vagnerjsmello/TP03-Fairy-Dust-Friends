@@ -18,11 +18,8 @@ namespace FairyDustFriends.WebApp.Controllers
         public FriendController()
         {
             _client = new HttpClient();
-
             _client.BaseAddress = new Uri(WebConfigurationManager.AppSettings["AzureUriApiFriends"]);            
-
-            _client.DefaultRequestHeaders.Accept.Add(
-                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            _client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         // GET: Friend
@@ -44,8 +41,7 @@ namespace FairyDustFriends.WebApp.Controllers
             else
             {
                 //Obtem Profile pelo Id
-                frined = _client.GetAsync("api/friend/" + id)
-                    .Result.Content.ReadAsAsync<FriendModel>().Result;
+                frined = _client.GetAsync("api/friend/" + id).Result.Content.ReadAsAsync<FriendModel>().Result;
             }
 
             if (frined == null)
@@ -91,8 +87,9 @@ namespace FairyDustFriends.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-                FriendModel friend = _client.GetAsync("api/friend/" + id)
-                .Result.Content.ReadAsAsync<FriendModel>().Result;
+
+            FriendModel friend = _client.GetAsync("api/friend/" + id).Result.Content.ReadAsAsync<FriendModel>().Result;
+
             if (friend == null)
             {
                 return HttpNotFound();
@@ -121,8 +118,8 @@ namespace FairyDustFriends.WebApp.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            FriendModel friend = _client.GetAsync("api/friend/" + id)
-            .Result.Content.ReadAsAsync<FriendModel>().Result;
+            FriendModel friend = _client.GetAsync("api/friend/" + id).Result.Content.ReadAsAsync<FriendModel>().Result;
+
             if (friend == null)
             {
                 return HttpNotFound();

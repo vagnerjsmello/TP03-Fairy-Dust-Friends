@@ -13,11 +13,11 @@ namespace FairyDustFriends.Api.Controllers
 {
     public class FriendController : ApiController
     {
-        private IFriendService _FriendService;
+        private IFriendService _friendService;
 
         public FriendController(IFriendService FriendService)
         {
-            _FriendService = FriendService;
+            _friendService = FriendService;
         }
 
         [HttpGet]
@@ -25,7 +25,7 @@ namespace FairyDustFriends.Api.Controllers
         [ResponseType(typeof(List<FriendViewModel>))]
         public IHttpActionResult GetFriends()
         {
-            return Ok(_FriendService.GetAll().ToList());
+            return Ok(_friendService.GetAll().ToList());
         }
 
         [HttpGet]
@@ -35,21 +35,21 @@ namespace FairyDustFriends.Api.Controllers
         {
             string idStr = id.ToString();
 
-            return Ok(_FriendService.Get(idStr));
+            return Ok(_friendService.Get(idStr));
         }
 
         [HttpPost]
         [Route("api/friend")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult Post(FriendViewModel FriendVM)
+        public IHttpActionResult Post(FriendViewModel friendVM)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            FriendVM.Id = Guid.NewGuid().ToString();
-            _FriendService.Add(FriendVM);
+            friendVM.Id = Guid.NewGuid().ToString();
+            _friendService.Add(friendVM);
 
             return Ok();
         }
@@ -58,14 +58,14 @@ namespace FairyDustFriends.Api.Controllers
         [HttpPut]
         [Route("api/friend")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult Put(FriendViewModel FriendVM)
+        public IHttpActionResult Put(FriendViewModel friendVM)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _FriendService.Update(FriendVM);
+            _friendService.Update(friendVM);
             return StatusCode(HttpStatusCode.NoContent);
 
         }
@@ -76,7 +76,7 @@ namespace FairyDustFriends.Api.Controllers
         public IHttpActionResult Delete(Guid id)
         {
 
-            _FriendService.Delete(id.ToString());
+            _friendService.Delete(id.ToString());
 
             return Ok();
         }

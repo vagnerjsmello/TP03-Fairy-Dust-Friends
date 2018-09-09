@@ -10,7 +10,7 @@ namespace FairyDustFriends.Data
     public class FriendStoredProcedureRepository : IFriendRepository
     {
 
-        public void Create(Friend Friend)
+        public void Create(Friend friend)
         {
             SqlConnection sqlConnection = OpenConnectionAndConnectionString();
 
@@ -18,12 +18,12 @@ namespace FairyDustFriends.Data
             sqlCommandCreateFriend = new SqlCommand("CreateFriend", sqlConnection);
             sqlCommandCreateFriend.CommandType = System.Data.CommandType.StoredProcedure;
 
-            sqlCommandCreateFriend.Parameters.AddWithValue("Id", Friend.Id);
-            sqlCommandCreateFriend.Parameters.AddWithValue("FirstName", Friend.FirstName);
-            sqlCommandCreateFriend.Parameters.AddWithValue("LastName", Friend.LastName);
-            sqlCommandCreateFriend.Parameters.AddWithValue("Email", Friend.Email);
-            sqlCommandCreateFriend.Parameters.AddWithValue("Phone", Friend.Phone);
-            sqlCommandCreateFriend.Parameters.AddWithValue("Birthday", Friend.Birthday);
+            sqlCommandCreateFriend.Parameters.AddWithValue("Id", friend.Id);
+            sqlCommandCreateFriend.Parameters.AddWithValue("FirstName", friend.FirstName);
+            sqlCommandCreateFriend.Parameters.AddWithValue("LastName", friend.LastName);
+            sqlCommandCreateFriend.Parameters.AddWithValue("Email", friend.Email);
+            sqlCommandCreateFriend.Parameters.AddWithValue("Phone", friend.Phone);
+            sqlCommandCreateFriend.Parameters.AddWithValue("Birthday", friend.Birthday);
             sqlCommandCreateFriend.ExecuteNonQuery();
 
             sqlConnection.Close();
@@ -107,7 +107,7 @@ namespace FairyDustFriends.Data
             return Friends;
         }
 
-        public void Update(Friend Friend)
+        public void Update(Friend friend)
         {
             SqlConnection sqlConnection = OpenConnectionAndConnectionString();
 
@@ -115,12 +115,12 @@ namespace FairyDustFriends.Data
             sqlCommandUpdateFriend = new SqlCommand("UpdateFriend", sqlConnection);
             sqlCommandUpdateFriend.CommandType = System.Data.CommandType.StoredProcedure;
 
-            sqlCommandUpdateFriend.Parameters.AddWithValue("Id", Friend.Id);
-            sqlCommandUpdateFriend.Parameters.AddWithValue("FirstName", Friend.FirstName);
-            sqlCommandUpdateFriend.Parameters.AddWithValue("LastName", Friend.LastName);
-            sqlCommandUpdateFriend.Parameters.AddWithValue("Email", Friend.Email);
-            sqlCommandUpdateFriend.Parameters.AddWithValue("Phone", Friend.Phone);
-            sqlCommandUpdateFriend.Parameters.AddWithValue("Birthday", Friend.Birthday);
+            sqlCommandUpdateFriend.Parameters.AddWithValue("Id", friend.Id);
+            sqlCommandUpdateFriend.Parameters.AddWithValue("FirstName", friend.FirstName);
+            sqlCommandUpdateFriend.Parameters.AddWithValue("LastName", friend.LastName);
+            sqlCommandUpdateFriend.Parameters.AddWithValue("Email", friend.Email);
+            sqlCommandUpdateFriend.Parameters.AddWithValue("Phone", friend.Phone);
+            sqlCommandUpdateFriend.Parameters.AddWithValue("Birthday", friend.Birthday);
             sqlCommandUpdateFriend.ExecuteNonQuery();
 
             sqlConnection.Close();            

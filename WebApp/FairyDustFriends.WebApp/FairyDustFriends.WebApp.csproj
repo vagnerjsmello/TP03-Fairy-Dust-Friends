@@ -195,6 +195,7 @@
     <Content Include="Content\light_dashboard_v2\sass\lbd\_variables.scss" />
     <Content Include="Content\light_dashboard_v2\sass\light-bootstrap-dashboard.scss" />
     <None Include="Properties\PublishProfiles\vagnermellotp03app - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\vagnermellotp03appfriends - Web Deploy.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
