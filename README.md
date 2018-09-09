@@ -93,12 +93,8 @@ GO
 <add key="AzureUriApi" value="{Your Api Azure here}"/>   
 ```
 
-## Publicões desse projeto no Azure:
+## Publições desse projeto no Azure:
 
-[Web Api](https://vagnermellotp03apifriends.azurewebsites.net/)
+[Web Api: https://vagnermellotp03apifriends.azurewebsites.net](https://vagnermellotp03apifriends.azurewebsites.net/)
 
-[Web App](https://vagnermellotp03appfriends.azurewebsites.net/)
-
-
-
-
+[Web App: https://vagnermellotp03appfriends.azurewebsites.net/](https://vagnermellotp03appfriends.azurewebsites.net/)
